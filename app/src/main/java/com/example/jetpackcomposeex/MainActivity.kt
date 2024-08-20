@@ -64,8 +64,13 @@ class MainActivity : ComponentActivity() {
                         HorizontalDivider()
                         Spacer(modifier = Modifier.height(4.dp))
                         StatisticsSection()
+                        Spacer(modifier = Modifier.height(4.dp))
+                        HorizontalDivider()
+                        Spacer(modifier = Modifier.height(4.dp))
                         RatingRow()
-                        SimpleUI()
+                        HorizontalDivider()
+                        NevegateUI()
+                        HorizontalDivider()
                         OrderListScreen()
                     }
                 }
@@ -178,9 +183,9 @@ fun TopSection() {
 fun TagsSection() {
     FlowRow(
         modifier =
-            Modifier
-                .fillMaxWidth()
-                .padding(top = 4.dp, bottom = 4.dp, start = 16.dp, end = 16.dp),
+        Modifier
+            .fillMaxWidth()
+            .padding(top = 4.dp, bottom = 4.dp, start = 16.dp, end = 16.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
@@ -188,9 +193,9 @@ fun TagsSection() {
             text = "Đã mua",
             fontSize = 18.sp,
             modifier =
-                Modifier
-                    .alignByBaseline()
-                    .padding(end = 8.dp),
+            Modifier
+                .alignByBaseline()
+                .padding(end = 8.dp),
         )
 
         listOf(
@@ -203,10 +208,10 @@ fun TagsSection() {
             Text(
                 text = tag,
                 modifier =
-                    Modifier
-                        .clip(RoundedCornerShape(4.dp))
-                        .background(color)
-                        .padding(4.dp),
+                Modifier
+                    .clip(RoundedCornerShape(4.dp))
+                    .background(color)
+                    .padding(4.dp),
                 fontSize = 18.sp,
             )
         }
@@ -217,15 +222,18 @@ fun TagsSection() {
 @Composable
 fun StatisticsSection() {
     Row(
-        modifier =
-            Modifier
-                .fillMaxWidth()
-                .padding(top = 4.dp, bottom = 4.dp, start = 16.dp, end = 16.dp),
-        horizontalArrangement = Arrangement.SpaceBetween,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp), // Đồng bộ padding với RatingRow
+        verticalAlignment = Alignment.CenterVertically, // Căn giữa theo trục dọc
+        horizontalArrangement = Arrangement.Center // Căn giữa toàn bộ nội dung
     ) {
         StatisticItem(label = "Độ cháy túi", value = "--")
+        Spacer(modifier = Modifier.width(16.dp))
         StatisticItem(label = "ĐH đã đặt", value = "80")
+        Spacer(modifier = Modifier.width(16.dp))
         StatisticItem(label = "Thành công", value = "--")
+        Spacer(modifier = Modifier.width(16.dp))
         StatisticItem(label = "Tốc độ nhận", value = "Tên lửa")
     }
 }
@@ -236,10 +244,11 @@ fun StatisticItem(
     value: String,
 ) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(value, style = MaterialTheme.typography.headlineSmall, fontSize = 16.sp)
-        Text(label, color = Color.Gray, fontSize = 12.sp)
+        Text(value, fontSize = 18.sp, fontWeight = FontWeight.Bold, color = Color.Black) // Đồng bộ kích thước và kiểu chữ với RatingRow
+        Text(label, color = Color.Gray, fontSize = 14.sp) // Đồng bộ kích thước chữ với RatingRow
     }
 }
+
 
 @Composable
 fun HorizontalDivider(
@@ -250,7 +259,9 @@ fun HorizontalDivider(
     Divider(
         color = color,
         thickness = thickness,
-        modifier = modifier.fillMaxWidth().padding(16.dp),
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(start = 16.dp, end = 16.dp),
     )
 }
 
@@ -258,11 +269,11 @@ fun HorizontalDivider(
 @Composable
 fun RatingRow() {
     Row(
-        modifier =
-            Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 8.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.Center // Căn giữa nội dung
     ) {
         RatingItem(count = "38", emoji = "😍", label = "Đánh giá")
         Spacer(modifier = Modifier.width(16.dp))
@@ -292,13 +303,14 @@ fun RatingItem(
     }
 }
 
+
 @Preview
 @Composable
-fun SimpleUI() {
+fun NevegateUI() {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp),
+            .padding(start = 16.dp, end = 16.dp, top = 8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Column(
@@ -342,9 +354,9 @@ fun SimpleUI() {
 fun OrderListScreen() {
     Row(
         modifier =
-            Modifier
-                .fillMaxWidth()
-                .padding(top = 4.dp, bottom = 4.dp, start = 16.dp, end = 16.dp),
+        Modifier
+            .fillMaxWidth()
+            .padding(top = 4.dp, bottom = 4.dp, start = 16.dp, end = 16.dp),
     ) {
         LazyColumn(
             modifier = Modifier.weight(1f),
@@ -362,9 +374,9 @@ fun OrderListScreen() {
         // Right Side Buttons
         Column(
             modifier =
-                Modifier
-                    .width(80.dp)
-                    .background(Color(0xFF2E7D32), shape = RoundedCornerShape(8.dp)),
+            Modifier
+                .width(80.dp)
+                .background(Color(0xFF2E7D32), shape = RoundedCornerShape(8.dp)),
         ) {
             SideButton(iconRes = R.drawable.ic_call, label = "Gọi điện")
             SideButton(iconRes = R.drawable.ic_chat, label = "Chat")
@@ -381,9 +393,9 @@ fun OrderItem(
 ) {
     Row(
         modifier =
-            Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp),
+        Modifier
+            .fillMaxWidth()
+            .padding(vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         // Text on the left
@@ -412,10 +424,10 @@ fun SideButton(
 ) {
     Column(
         modifier =
-            Modifier
-                .fillMaxWidth()
-                .padding(8.dp)
-                .clickable { /* Handle click */ },
+        Modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+            .clickable { /* Handle click */ },
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Icon(
