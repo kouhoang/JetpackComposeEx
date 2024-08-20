@@ -188,16 +188,8 @@ fun TagsSection() {
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        Text(
-            text = "Đã mua",
-            fontSize = 18.sp,
-            modifier =
-            Modifier
-                .alignByBaseline()
-                .padding(end = 8.dp),
-        )
-
         listOf(
+            "Đã mua" to Color.White,
             "Thiết bị điện tử" to Color.LightGray,
             "Voucher" to Color.Yellow,
             "Thiết bị điện gia dụng" to Color.Cyan,
@@ -211,7 +203,7 @@ fun TagsSection() {
                     .clip(RoundedCornerShape(4.dp))
                     .background(color)
                     .padding(4.dp),
-                fontSize = 18.sp,
+                fontSize = 16.sp,
             )
         }
     }
