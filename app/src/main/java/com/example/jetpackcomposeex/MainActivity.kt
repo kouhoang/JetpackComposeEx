@@ -164,10 +164,9 @@ fun TopSection() {
                 Column(
                     modifier = Modifier.weight(1f),
                 ) {
-                    // Ảnh ở đây
 
                     Text(
-                        "Đã xác thực SDT & Địa chỉ",
+                        "✓ Đã xác thực SDT & Địa chỉ",
                         color = Color.Black,
                         fontSize = 14.sp,
                     )
@@ -234,7 +233,7 @@ fun StatisticsSection() {
         Spacer(modifier = Modifier.width(16.dp))
         StatisticItem(label = "Thành công", value = "--")
         Spacer(modifier = Modifier.width(16.dp))
-        StatisticItem(label = "Tốc độ nhận", value = "Tên lửa")
+        StatisticItem(label = "Tốc độ nhận", value = " \uD83D\uDE80 Tên lửa")
     }
 }
 
@@ -244,8 +243,8 @@ fun StatisticItem(
     value: String,
 ) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(value, fontSize = 18.sp, fontWeight = FontWeight.Bold, color = Color.Black) // Đồng bộ kích thước và kiểu chữ với RatingRow
-        Text(label, color = Color.Gray, fontSize = 14.sp) // Đồng bộ kích thước chữ với RatingRow
+        Text(value, fontSize = 18.sp, fontWeight = FontWeight.Bold, color = Color.Black)
+        Text(label, color = Color.Gray, fontSize = 14.sp)
     }
 }
 
@@ -398,7 +397,6 @@ fun OrderItem(
             .padding(vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        // Text on the left
         Column(
             modifier = Modifier.weight(1f),
         ) {
@@ -407,7 +405,6 @@ fun OrderItem(
 
         Spacer(modifier = Modifier.width(8.dp))
 
-        // Time on the right
         Text(
             text = date,
             fontSize = 12.sp,
@@ -450,7 +447,7 @@ val orderItems =
     listOf(
         OrderItemData("YEAHHH! hai đã đặt hàng sản phẩm Giá trị cao", "10/10/2023"),
         OrderItemData("YEAHHH! hai đã đặt hàng sản phẩm Thực phẩm khô", "10/10/2023"),
-        OrderItemData("YEAHHH! hai đã đặt hàng sản phẩm Thực phẩm tươi", "10/10/2023"),
+        OrderItemData("YEAHHH!s hai đã đặt hàng sản phẩm Thực phẩm tươi", "10/10/2023"),
         OrderItemData("YEAHHH! phus đã đặt hàng sản phẩm 2023-09-20", "29/09/2023"),
         OrderItemData("YEAHHH! phus đã đặt hàng sản phẩm 2023-09-20, fsdf", "29/09/2023"),
         OrderItemData("YEAHHH! hai đã đặt hàng sản phẩm heli, 1", "29/09/2023"),
