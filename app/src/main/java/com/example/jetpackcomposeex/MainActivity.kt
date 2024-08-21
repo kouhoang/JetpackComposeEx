@@ -34,8 +34,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -84,9 +82,9 @@ class MainActivity : ComponentActivity() {
 fun TopSection() {
     Row(
         modifier =
-        Modifier
-            .fillMaxWidth()
-            .padding(16.dp),
+            Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
@@ -96,16 +94,16 @@ fun TopSection() {
             Text(
                 "<",
                 style = MaterialTheme.typography.headlineSmall,
-                color = Color.Green,
+                color = Color(0xFF4CAF50),
             )
 
             Spacer(modifier = Modifier.width(8.dp))
 
             Box(
                 modifier =
-                Modifier
-                    .size(50.dp)
-                    .background(Color.Green, shape = CircleShape),
+                    Modifier
+                        .size(50.dp)
+                        .background(Color(0xFF4CAF50), shape = CircleShape),
                 contentAlignment = Alignment.Center,
             ) {
                 Text("55", color = Color.White)
@@ -115,9 +113,9 @@ fun TopSection() {
 
             Column(
                 modifier =
-                Modifier
-                    .fillMaxWidth()
-                    .height(60.dp),
+                    Modifier
+                        .fillMaxWidth()
+                        .height(60.dp),
             ) {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
@@ -132,13 +130,13 @@ fun TopSection() {
 
                     Button(
                         onClick = { /* TODO: Follow logic */ },
-                        colors = ButtonDefaults.buttonColors(containerColor = Color.Green),
+                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF4CAF50)),
                         shape = RectangleShape,
                         modifier =
-                        Modifier
-                            .height(24.dp)
-                            .width(80.dp),
-                        contentPadding = PaddingValues(0.dp), // Giảm padding bên trong nút
+                            Modifier
+                                .height(24.dp)
+                                .width(80.dp),
+                        contentPadding = PaddingValues(0.dp),
                     ) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Icon(
@@ -164,7 +162,6 @@ fun TopSection() {
                 Column(
                     modifier = Modifier.weight(1f),
                 ) {
-
                     Text(
                         "✓ Đã xác thực SDT & Địa chỉ",
                         color = Color.Black,
@@ -182,9 +179,9 @@ fun TopSection() {
 fun TagsSection() {
     FlowRow(
         modifier =
-        Modifier
-            .fillMaxWidth()
-            .padding(top = 4.dp, bottom = 4.dp, start = 16.dp, end = 16.dp),
+            Modifier
+                .fillMaxWidth()
+                .padding(top = 4.dp, bottom = 4.dp, start = 16.dp, end = 16.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
@@ -199,10 +196,10 @@ fun TagsSection() {
             Text(
                 text = tag,
                 modifier =
-                Modifier
-                    .clip(RoundedCornerShape(4.dp))
-                    .background(color)
-                    .padding(4.dp),
+                    Modifier
+                        .clip(RoundedCornerShape(4.dp))
+                        .background(color)
+                        .padding(4.dp),
                 fontSize = 16.sp,
             )
         }
@@ -213,11 +210,13 @@ fun TagsSection() {
 @Composable
 fun StatisticsSection() {
     Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp), // Đồng bộ padding với RatingRow
-        verticalAlignment = Alignment.CenterVertically, // Căn giữa theo trục dọc
-        horizontalArrangement = Arrangement.Center // Căn giữa toàn bộ nội dung
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 8.dp),
+        // Đồng bộ padding với RatingRow
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.Center,
     ) {
         StatisticItem(label = "Độ cháy túi", value = "--")
         Spacer(modifier = Modifier.width(16.dp))
@@ -240,7 +239,6 @@ fun StatisticItem(
     }
 }
 
-
 @Composable
 fun HorizontalDivider(
     color: Color = Color.Gray,
@@ -250,9 +248,10 @@ fun HorizontalDivider(
     Divider(
         color = color,
         thickness = thickness,
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(start = 16.dp, end = 16.dp),
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp, end = 16.dp),
     )
 }
 
@@ -260,11 +259,12 @@ fun HorizontalDivider(
 @Composable
 fun RatingRow() {
     Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp),
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Center // Căn giữa nội dung
+        horizontalArrangement = Arrangement.Center,
     ) {
         RatingItem(count = "38", emoji = "😍", label = "Đánh giá")
         Spacer(modifier = Modifier.width(16.dp))
@@ -294,32 +294,34 @@ fun RatingItem(
     }
 }
 
-
 @Preview
 @Composable
 fun NevegateUI() {
     Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(start = 16.dp, end = 16.dp, top = 8.dp),
-        verticalAlignment = Alignment.CenterVertically
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp, end = 16.dp, top = 8.dp),
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(
-            modifier = Modifier
-                .weight(1f),
-            horizontalAlignment = Alignment.CenterHorizontally
+            modifier =
+                Modifier
+                    .weight(1f),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
                 text = "Hoạt động",
-                color = Color(0xFF4CAF50), // Green color
+                color = Color(0xFF4CAF50),
                 fontSize = 16.sp,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Bold,
             )
             Spacer(
-                modifier = Modifier
-                    .height(2.dp)
-                    .fillMaxWidth()
-                    .background(Color(0xFF4CAF50))
+                modifier =
+                    Modifier
+                        .height(2.dp)
+                        .fillMaxWidth()
+                        .background(Color(0xFF4CAF50)),
             )
         }
         Spacer(modifier = Modifier.width(8.dp))
@@ -327,14 +329,14 @@ fun NevegateUI() {
             text = "Nhận hàng",
             color = Color.Black,
             fontSize = 16.sp,
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.weight(1f),
         )
         Spacer(modifier = Modifier.width(8.dp))
         Text(
             text = "2lanstore",
             color = Color.Black,
             fontSize = 16.sp,
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.weight(1f),
         )
         Spacer(modifier = Modifier.weight(1f))
     }
@@ -345,9 +347,9 @@ fun NevegateUI() {
 fun OrderListScreen() {
     Row(
         modifier =
-        Modifier
-            .fillMaxWidth()
-            .padding(top = 4.dp, bottom = 4.dp, start = 16.dp, end = 16.dp),
+            Modifier
+                .fillMaxWidth()
+                .padding(top = 4.dp, bottom = 4.dp, start = 16.dp, end = 16.dp),
     ) {
         LazyColumn(
             modifier = Modifier.weight(1f),
@@ -365,9 +367,9 @@ fun OrderListScreen() {
         // Right Side Buttons
         Column(
             modifier =
-            Modifier
-                .width(80.dp)
-                .background(Color(0xFF2E7D32), shape = RoundedCornerShape(8.dp)),
+                Modifier
+                    .width(80.dp)
+                    .background(Color(0xFF2E7D32), shape = RoundedCornerShape(8.dp)),
         ) {
             SideButton(iconRes = R.drawable.ic_call, label = "Gọi điện")
             SideButton(iconRes = R.drawable.ic_chat, label = "Chat")
@@ -384,9 +386,9 @@ fun OrderItem(
 ) {
     Row(
         modifier =
-        Modifier
-            .fillMaxWidth()
-            .padding(vertical = 8.dp),
+            Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(
@@ -413,10 +415,10 @@ fun SideButton(
 ) {
     Column(
         modifier =
-        Modifier
-            .fillMaxWidth()
-            .padding(8.dp)
-            .clickable { /* Handle click */ },
+            Modifier
+                .fillMaxWidth()
+                .padding(8.dp)
+                .clickable { /* Handle click */ },
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Icon(
